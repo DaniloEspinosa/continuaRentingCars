@@ -2,7 +2,7 @@
   "name": "7_evaluacion_continua_renting_car",
   "version": "1.0.0",
   "description": "Evaluación continua renting cars",
-  "main": "index.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

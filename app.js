@@ -1,8 +1,5 @@
 // Cargar los módulos (agregamos el type:modules para utilizar la nueva sintaxis)
 import express from 'express'
-// const express = require('express')  --- Esta es la otra sintaxis
-
-import bodyParser from 'body-parser'
 
 import router from './router.js'
 
@@ -10,19 +7,12 @@ import router from './router.js'
 const app = express()
 
 // Crear la variable para el puerto
-const PORT = process.env.PORT
-// process.env.PORT es para utilizar las variables de entorno
+const PORT = process.env.PORT || 3000
 
-// Determinar motor de plantillas
-app.set('view engine', 'ejs')
-
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
-
-// Indicar cual es la carpeta de los ficheros estáticos
+// Indicar la carpeta de los ficheros estáticos
 app.use(express.static('public'))
-// Ahora indicar las rutas
 app.use(router)
+
 
 
 

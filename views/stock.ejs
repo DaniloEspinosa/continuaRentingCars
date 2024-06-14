@@ -1,0 +1,47 @@
+<%- include('templates/head') %>
+
+<body>
+    <header>
+        <h1 class="h1-privado">Modelos</h1>
+    </header>
+    <main>
+        <table id="tabla" class="table table-striped">
+
+        <thead>
+            <tr>
+                <th>ID modelo</th>
+                <th>Nombre</th>
+                <th>Cantidad en stock</th>
+                <th>Edición</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% vehiculos.forEach(vehiculo=> { %>
+                <tr>
+                    <td>
+                        <%= vehiculo.id_modelo %>
+                    </td>
+                    <td>
+                        <%= vehiculo.nombre_modelo %>
+                    </td>
+                    <td>
+                        <%= vehiculo.unidades_totales %>
+                    </td>
+                    <td>
+                        <a href="editar/<%= vehiculo.id_modelo %>">✏</a>&nbsp;&nbsp;&nbsp;
+                        <a href="borrar/<%= vehiculo.id_modelo %>">🗑</a>
+                    </td>
+                </tr>
+
+                <% }) %>
+        </tbody>
+        </table>
+
+        <a href="formulario" class="btn btn-primary" role="button" aria-disabled="true">Agregar vehiculo</a>
+        <a href="/" class="btn btn-primary" role="button" aria-disabled="true">Modelos disponibles</a>
+
+    </main>
+
+</body>
+
+</html>

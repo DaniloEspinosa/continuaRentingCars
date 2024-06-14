@@ -1,0 +1,29 @@
+<header>
+    <div class="header">
+        <picture>
+            <!-- <source srcset="" media="(max-width: 500px)">
+        <source srcset="img/index_800px.avif" media="(max-width: 800px)">
+        <source srcset="img/index_1400px.avif" media="(max-width: 1400px)"> -->
+            <img class="imagenHeader" src="/img/header_img.avif"
+                alt="Imagen cabecera, foto tomada desde el interior del vehiculo">
+        </picture>
+        <h1>
+            <%= h1 %>
+        </h1>
+    </div>
+    <div class="menu">
+
+        <div>
+            <a href="/">🏠</a>           
+       </div>
+        <nav>
+            <% menu.forEach(tipo=> { %>
+                <a href="/<%= tipo %>">
+                    <%= tipo %>
+                </a>
+                <% }) %>    
+        </nav>
+
+    </div>
+
+</header>

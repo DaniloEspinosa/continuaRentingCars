@@ -1,0 +1,138 @@
+<%- include('templates/head') %>
+
+    <body>
+        <header class="container text-center">
+            <h1 class="h1-privado">
+                <%= title %>
+            </h1>
+            <a href="/" class="btn btn-primary" role="button" aria-disabled="true">Inicio</a>
+        </header>
+
+        <main class="container">
+
+
+            <% if (id===0) { %>
+
+                <form action="/insert" method="post">
+                    <fieldset>
+
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre" aria-describedby="nombre" name="nombre">
+                        </div>
+                        <div class="mb-3">
+                            <label for="unidades_totales" class="form-label">Unidades totales:</label>
+                            <input type="number" class="form-control" id="unidades_totales"
+                                aria-describedby="unidades_totales" name="unidades_totales">
+                        </div>
+                        <div class="mb-3">
+                            <label for="unidades_alquiladas" class="form-label">Unidades alquiladas:</label>
+                            <input type="number" class="form-control" id="unidades_alquiladas"
+                                aria-describedby="unidades_alquiladas" name="unidades_alquiladas">
+                        </div>
+                        <div class="mb-3">
+                            <label for="personas" class="form-label">Personas:</label>
+                            <input type="number" class="form-control" id="personas" aria-describedby="personas"
+                                name="personas">
+                        </div>
+                        <div class="mb-3">
+                            <label for="puertas" class="form-label">Puertas:</label>
+                            <input type="number" class="form-control" id="puertas" aria-describedby="puertas"
+                                name="puertas">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cambio" class="form-label">Cambio:</label>
+                            <input type="text" class="form-control" id="cambio" aria-describedby="cambio" name="cambio">
+                        </div>
+                        <div class="mb-3">
+                            <label for="maletas" class="form-label">Maletas:</label>
+                            <input type="number" class="form-control" id="maletas" aria-describedby="maletas"
+                                name="maletas">
+                        </div>
+                        <div class="mb-3">
+                            <label for="tipo" class="form-label">Tipo:</label>
+                            <input type="text" class="form-control" id="tipo" aria-describedby="tipo" name="tipo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="precioDia" class="form-label">Precio por día:</label>
+                            <input type="number" class="form-control" id="precioDia" aria-describedby="precioDia"
+                                name="precioDia">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            <%= title %>
+                        </button>
+                        <button type="reset" class="btn btn-danger">Borrar datos</button>
+
+                    </fieldset>
+
+                </form>
+
+                <% } else { %>
+                    <form action="/update" method="post">
+                        <fieldset>
+
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre:</label>
+                                <input type="text" class="form-control" id="nombre" aria-describedby="nombre"
+                                    name="nombre" value="<%- results.nombre_modelo %>">
+                            </div>
+                            <div class="mb-3">
+                                <label for="unidades_totales" class="form-label">Unidades totales:</label>
+                                <input type="number" class="form-control" id="unidades_totales"
+                                    aria-describedby="unidades_totales" name="unidades_totales"
+                                    value="<%- results.unidades_totales%>">
+                            </div>
+                            <div class="mb-3">
+                                <label for="unidades_alquiladas" class="form-label">Unidades alquiladas:</label>
+                                <input type="number" class="form-control" id="unidades_alquiladas"
+                                    aria-describedby="unidades_alquiladas" name="unidades_alquiladas"
+                                    value="<%- results.unidades_alquiladas %>">
+                            </div>
+                            <div class="mb-3">
+                                <label for="personas" class="form-label">Personas:</label>
+                                <input type="number" class="form-control" id="personas" aria-describedby="personas"
+                                    name="personas" value="<%- results.personas %>">
+                            </div>
+                            <div class="mb-3">
+                                <label for="puertas" class="form-label">Puertas:</label>
+                                <input type="number" class="form-control" id="puertas" aria-describedby="puertas"
+                                    name="puertas" value="<%- results.puertas %>">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cambio" class="form-label">Cambio:</label>
+                                <input type="text" class="form-control" id="cambio" aria-describedby="cambio"
+                                    name="cambio" value="<%- results.cambio %>">
+                            </div>
+                            <div class="mb-3">
+                                <label for="maletas" class="form-label">Maletas:</label>
+                                <input type="number" class="form-control" id="maletas" aria-describedby="maletas"
+                                    name="maletas" value="<%- results.maletas %>">
+                            </div>
+                            <div class="mb-3">
+                                <label for="tipo" class="form-label">Tipo:</label>
+                                <input type="text" class="form-control" id="tipo" aria-describedby="tipo" name="tipo"
+                                    value="<%- results.tipo %>">
+                            </div>
+                            <div class="mb-3">
+                                <label for="precioDia" class="form-label">Precio por día:</label>
+                                <input type="number" class="form-control" id="precioDia" aria-describedby="precioDia"
+                                    name="precioDia" value="<%- results.precioDia %>">
+                            </div>
+
+                            <!-- Este id se mantiene oculto en la pagina pero es necesario para poder realizar la consulta del mysql -->
+                            <input type="hidden" name="id_modelo" value="<%= results.id_modelo %>">
+
+                            <button type="submit" class="btn btn-primary">
+                                <%= title %>
+                            </button>
+                            <a href="/" class="btn btn-danger" role="button" aria-disabled="true">Cancelar</a>
+                        </fieldset>
+
+                    </form>
+                    <% } %>
+
+        </main>
+    </body>
+
+    </html>

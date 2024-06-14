@@ -1,0 +1,61 @@
+<%- include('templates/head') %>
+
+    <body>
+
+        <%- include('templates/header') %>
+
+        <main>
+            <form action="/nuevocliente" method="post">
+                <p><%- mensaje %></p>
+                <input type="hidden" name="id_modelo" value="<%= result[0].id_modelo %>">
+                <div class="mb-2">
+                    <label for="nombre" class="form-label">Ingrese su nombre:</label>
+                    <input type="text" class="form-control" id="nombre"
+                        aria-describedby="nombre" name="nombre">
+                </div>
+                <div class="mb-2">
+                    <label for="apellido" class="form-label">Ingrese su apellido:</label>
+                    <input type="text" class="form-control" id="apellido"
+                        aria-describedby="apellido" name="apellido">
+                </div>
+                <div class="mb-2">
+                    <label for="dni" class="form-label">Ingrese su dni:</label>
+                    <input type="text" class="form-control" id="dni"
+                        aria-describedby="dni" name="dni">
+                </div>
+                <div class="mb-2">
+                    <label for="tel" class="form-label">Ingrese su telefono:</label>
+                    <input type="text" class="form-control" id="tel"
+                        aria-describedby="tel" name="tel">
+                </div>
+                <div class="mb-2">
+                    <label for="email" class="form-label">Ingrese su email:</label>
+                    <input type="email" class="form-control" id="email"
+                        aria-describedby="email" name="email">
+                </div>
+                <div class="mb-2">
+                    <label for="poblacio" class="form-label">Ingrese su población:</label>
+                    <input type="text" class="form-control" id="poblacio"
+                        aria-describedby="poblacio" name="poblacio">
+                </div>
+                <div class="mb-2">
+                    <label for="password" class="form-label">Ingrese un password:</label>
+                    <input type="password" class="form-control" id="password"
+                        aria-describedby="password" name="password">
+                </div>
+                <div class="mb-2">
+                    <label for="password2" class="form-label">Repite el password:</label>
+                    <input type="password" class="form-control" id="password2"
+                        aria-describedby="password2" name="password2">
+                </div>
+                <button type="submit" class="btn btn-primary">
+                   Enviar
+                </button>
+                <a href="/" class="btn btn-danger" role="button" aria-disabled="true">Cancelar</a>
+            </form>
+        </main>
+
+        <%- include('templates/footer') %>
+
+</body>
+</html>

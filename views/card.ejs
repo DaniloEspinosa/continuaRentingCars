@@ -1,0 +1,36 @@
+<%- include('templates/head') %>
+
+    <body>
+
+        <%- include('templates/header') %>
+
+            <main>
+                <section class="card-vehiculo">
+                    <div>
+                        <h2>
+                            <%= card.nombre_modelo %>
+                        </h2>
+                        <img src="/img/<%= card.nombre_modelo %>.webp" alt="imagen del <%= card.nombre_modelo %>">
+                    </div>
+                    <div class="caracteristicas">
+                        <h2>Características</h2>
+                        <div>
+                            <p><img src="/icons/personas.svg" alt=""> Personas: <%= card.personas %></p>
+                            <p><img src="/icons/puertas.svg" alt=""> Puertas: <%= card.puertas %></p>
+                            <p><img src="/icons/cambio.svg" alt=""> Cambio: <strong><%= card.cambio.toUpperCase() %></strong></p>
+                            <p><img src="/icons/maletas.svg" alt=""> Maletas: <%= card.maletas %></p>
+                            <p>Desde <span class="precio"><%= card.precioDia %>.00€</span>  por dia</p>
+                            <p><span class="precio-final"> Precio final garantizado</span></p>
+                            <a href="<%= card.id_modelo %>/reservar" class="reservar">Reservar</a>
+
+                        </div>
+                    </div>
+
+                </section>
+            </main>
+
+            <%- include('templates/footer') %>
+
+    </body>
+
+    </html>

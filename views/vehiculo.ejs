@@ -1,0 +1,29 @@
+<%- include('templates/head') %>
+
+    <body>
+
+        <%- include('templates/header') %>
+
+            <main>
+                <section>
+
+                    <% cards.forEach(card=> { %>
+                        <a href="/<%= card.tipo %>/<%= card.id %>">
+                            <div class="card">
+                                <img src="./img/<%= card.nombre %>.webp" alt="imagen del <%= card.nombre %>">
+                                <h2>
+                                    <%= card.nombre %>
+                                </h2>
+                            </div>
+                        </a>
+
+                        <% }) %>
+
+                </section>
+            </main>
+
+            <%- include('templates/footer') %>
+
+    </body>
+
+    </html>

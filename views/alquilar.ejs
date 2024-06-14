@@ -1,0 +1,39 @@
+<%- include('templates/head') %>
+
+    <body>
+
+        <%- include('templates/header') %>
+
+        <main>
+            <form action="/alquilarVehiculo" method="post">
+                <p class="descripcion-principal">Hola <%- cliente.nombre %>, estas por alquilar: <%- result.nombre_modelo %></p>
+                <!-- Inputs ocultos con informacion necesaria -->
+                <input type="hidden" name="id_cliente" value="<%- cliente.id_cliente %>">
+                <input type="hidden" name="id_modelo" value="<%- result.id_modelo %>">
+                <input type="hidden" name="precioDia" value="<%- result.precioDia %>">
+                <input type="hidden" name="unidades_alquiladas" value="<%- result.unidades_alquiladas %>">
+
+
+                <div class="mb-2">
+                    <label for="fecha_recogida" class="form-label">Fecha recogida:</label>
+                    <input type="date" class="form-control" id="fecha_recogida"
+                        aria-describedby="fecha_recogida" name="fecha_recogida">
+                </div>
+                <div class="mb-2">
+                    <label for="fecha_entrega" class="form-label">Fecha devolución:</label>
+                    <input type="date" class="form-control" id="fecha_entrega"
+                        aria-describedby="fecha_entrega" name="fecha_entrega">
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                   Enviar
+                </button>
+                <a href="/" class="btn btn-danger" role="button" aria-disabled="true">Cancelar</a>
+            </form>
+
+        </main>
+
+        <%- include('templates/footer') %>
+
+</body>
+</html>

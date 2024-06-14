@@ -1,0 +1,47 @@
+<%- include('templates/head') %>
+
+<body>
+    <header>
+        <h1 class="h1-privado">Modelos</h1>
+    </header>
+    <main>
+        <table id="tabla" class="table table-striped">
+
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Cantidad en stock</th>
+                <th>Cantidad actualmente en alquiler</th>
+                <th>Cantidad actualmente libre</th>
+                <th>Facturación producida de cada modelo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% vehiculos.forEach(vehiculo=> { %>
+                <tr>
+                    <td>
+                        <%= vehiculo.nombre_modelo %>
+                    </td>
+                    <td>
+                        <%= vehiculo.unidades_totales %>
+                    </td>
+                    <td>
+                        <%= vehiculo.unidades_alquiladas %>
+                    </td>
+                    <td>
+                        <%= vehiculo.unidades_totales - vehiculo.unidades_alquiladas %>
+                    </td>
+                    <td>
+                        <%= vehiculo.facturacion %>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+        </table>
+        <a href="/stock" class="btn btn-primary" role="button" aria-disabled="true">Ver stock</a>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<%- include('templates/head') %>
+
+    <body>
+
+        <%- include('templates/header') %>
+
+
+
+            <main>
+                <div class="card-reservar">
+                    <p class="vehiculo-a-reservar">Quieres reservar el vehiculo: <%- result[0].nombre_modelo %></p>
+                    <p class="vehiculo-a-reservar">Tiene un precio por dia de: <%- result[0].precioDia %>€</p>
+                    <p class="vehiculo-a-reservar">Dipone de plazas para <%- result[0].personas %> personas</p>
+                </div>
+
+
+
+                <form action="/comprobar" method="post">
+                    <div class="mb-3">
+                        <label for="dni" class="form-label">Ingrese su dni:</label>
+                        <input type="text" class="form-control" id="dni" aria-describedby="dni" name="dni">
+                    </div>
+                    <input type="hidden" name="id_modelo" value="<%= result[0].id_modelo %>">
+
+                    <button type="submit" class="btn btn-primary">
+                        Comprobar
+                    </button>
+                    <a href="/" class="btn btn-danger" role="button" aria-disabled="true">Cancelar</a>
+                </form>
+            </main>
+
+            <%- include('templates/footer') %>
+
+    </body>
+
+    </html>
